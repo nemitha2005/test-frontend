@@ -46,7 +46,7 @@ const ConfigurationForm = () => {
     }
 
     try {
-      const response = await axios.post("http://localhost:8080/api/config", {
+      const response = await axios.post("https://test-backend-production-e391.up.railway.app/api/config", {
         totalTickets: parseInt(totalTickets),
         ticketReleaseRate: parseInt(ticketReleaseRate),
         customerRetrievalRate: parseInt(customerRetrievalRate),
@@ -63,7 +63,7 @@ const ConfigurationForm = () => {
 
   const handleCheckConfig = async () => {
     try {
-      const response = await axios.get("http://localhost:8080/api/config");
+      const response = await axios.get("https://test-backend-production-e391.up.railway.app/api/config");
       const config = response.data;
       setMessage({
         type: "success",

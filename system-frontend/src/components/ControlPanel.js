@@ -30,7 +30,7 @@ const ControlPanel = () => {
   useEffect(() => {
     const fetchStatus = async () => {
       try {
-        const response = await axios.get("http://localhost:8080/api/status");
+        const response = await axios.get("https://test-backend-production-e391.up.railway.app/api/status");
         if (response.data.includes("running")) {
           setStatus({ text: "Running", color: "green" });
         } else {
@@ -54,7 +54,7 @@ const ControlPanel = () => {
 
   const handleStart = async () => {
     try {
-      const response = await axios.post("http://localhost:8080/api/start");
+      const response = await axios.post("https://test-backend-production-e391.up.railway.app/api/start");
       showNotification(response.data, "success");
     } catch (error) {
       console.error("Error starting the system:", error);
@@ -67,7 +67,7 @@ const ControlPanel = () => {
 
   const handleStop = async () => {
     try {
-      const response = await axios.post("http://localhost:8080/api/stop");
+      const response = await axios.post("https://test-backend-production-e391.up.railway.app/api/stop");
       showNotification(response.data, "success");
     } catch (error) {
       console.error("Error stopping the system:", error);

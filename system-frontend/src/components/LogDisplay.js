@@ -17,7 +17,7 @@ const LogDisplay = () => {
 
   useEffect(() => {
     const eventSource = new EventSource(
-      "http://localhost:8080/api/logs/stream"
+      "https://test-backend-production-e391.up.railway.app/api/logs/stream"
     );
     eventSource.onmessage = (event) =>
       setLogs((prevLogs) => [...prevLogs, event.data]);
