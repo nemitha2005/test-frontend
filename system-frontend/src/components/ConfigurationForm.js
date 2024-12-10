@@ -65,10 +65,18 @@ const ConfigurationForm = () => {
     try {
       const response = await axios.get("https://test-backend-production-e391.up.railway.app/api/config");
       const config = response.data;
+      
+      // Format the config into a readable string
+      const configString = Object.entries(config)
+        .map(([key, value]) => `${key}: ${value}`)
+        .join("\n");
+      
       setMessage({
         type: "success",
-        text: `Current Configuration: ${JSON.stringify(config)}`,
+        text: `Current Configuration: \n${configString}`,
       });
+      
+      alert(`Current Configuration:\n${configString}`);
     } catch (error) {
       const errorText =
         error.response?.data || "Failed to fetch configuration.";
